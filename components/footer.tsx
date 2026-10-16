@@ -1,0 +1,1 @@
+export default function Footer(){return <footer className="shell mt-28"><div className="rule py-10 flex flex-col sm:flex-row justify-between gap-3"><span className="eyebrow">The Observer · An archive of becoming</span><span className="eyebrow">Written in the present. Left for the future.</span></div></footer>}
