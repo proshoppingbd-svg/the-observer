@@ -10,6 +10,7 @@ export default function DailyJournal() {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [saved, setSaved] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     const draft = window.localStorage.getItem(`observer-daily-${today}`);
@@ -27,7 +28,7 @@ export default function DailyJournal() {
       <div className="daily-card-head"><div><p className="eyebrow">Journal 001 · Daily record</p><h2>{date}</h2></div><span className="daily-status">{saved ? 'Saved on this device' : 'Draft'}</span></div>
       <label className="daily-label">Date<input className="input" type="date" value={date} onChange={(event) => setDate(event.target.value)} /></label>
       <label className="daily-label">Title<input className="input" value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Give today a name" /></label>
-      <label className="daily-label">Your entry<textarea className="input daily-textarea" value={body} onChange={(event) => setBody(event.target.value)} placeholder="What happened? What did you notice? What do you believe now?" /></label>
+      <label className="daily-label">Your entry<textarea className={`input daily-textarea ${expanded ? 'is-expanded' : ''}`} rows={20} value={body} onChange={(event) => setBody(event.target.value)} placeholder="What happened? What did you notice? What do you believe now?" /><button className="editor-expand" type="button" onClick={() => setExpanded(!expanded)}>{expanded ? 'Collapse editor' : 'Expand editor'}</button></label>
       <div className="daily-actions"><button className="button" type="button" onClick={save}><Save size={16} /> {saved ? 'Saved' : 'Save draft'}</button><button className="button button-secondary" type="button" onClick={download}><Download size={16} /> Export Markdown</button></div>
       <p className="daily-note">Drafts currently stay in this browser. Connecting the private publishing system will make them syncable and publishable from Studio.</p>
     </section>
