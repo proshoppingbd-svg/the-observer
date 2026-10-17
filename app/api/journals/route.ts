@@ -19,6 +19,8 @@ export async function GET() {
 }
 export async function POST(request: Request) {
   try {
+    const publishKey = request.headers.get('x-publish-key');
+    if (!process.env.PUBLISH_KEY || publishKey !== process.env.PUBLISH_KEY) return NextResponse.json({ error: 'A valid publisher key is required.' }, { status: 401 });
     const payload = await request.json() as { date?: string; title?: string; body?: string };
     const date = payload.date?.trim();
     const title = payload.title?.trim();
