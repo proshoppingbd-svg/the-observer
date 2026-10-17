@@ -26,6 +26,7 @@ export default function Archive() {
         {filtered.map((entry) => <Link href={entry.href} key={entry.title} className="archive-entry"><p className="archive-entry-kind">{entry.kind} · SAMPLE ENTRY</p><h2>{entry.title}</h2><p>{entry.text}</p><ArrowUpRight size={18} aria-hidden="true" /></Link>)}
         {!filtered.length && <p className="archive-empty">No records match that search yet.</p>}
       </section>
+      <section className="sequence-section"><p className="eyebrow">The sequence continues</p><h2>Journal 001 → Journal 002 → Journal 003</h2><p>Every daily record becomes the next numbered journal. Start the next one from today&apos;s page.</p><Link href="/daily" className="button">Write Journal 001 <ArrowUpRight size={15}/></Link></section>
     </main>
   );
 }

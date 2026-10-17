@@ -24,7 +24,7 @@ export default function DailyJournal() {
     <h1 className="page-title">What is true today<span className="accent">?</span></h1>
     <p className="page-dek">A private first draft for the record. Write from inside the moment, before you know how it ends.</p>
     <section className="daily-card panel">
-      <div className="daily-card-head"><div><p className="eyebrow">Daily record</p><h2>{date}</h2></div><span className="daily-status">{saved ? 'Saved on this device' : 'Draft'}</span></div>
+      <div className="daily-card-head"><div><p className="eyebrow">Journal 001 · Daily record</p><h2>{date}</h2></div><span className="daily-status">{saved ? 'Saved on this device' : 'Draft'}</span></div>
       <label className="daily-label">Date<input className="input" type="date" value={date} onChange={(event) => setDate(event.target.value)} /></label>
       <label className="daily-label">Title<input className="input" value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Give today a name" /></label>
       <label className="daily-label">Your entry<textarea className="input daily-textarea" value={body} onChange={(event) => setBody(event.target.value)} placeholder="What happened? What did you notice? What do you believe now?" /></label>
