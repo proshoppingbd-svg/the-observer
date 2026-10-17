@@ -1,4 +1,24 @@
-import Link from 'next/link';import {journals} from '../../lib/journals';import {ArrowUpRight} from 'lucide-react';
-export const metadata={title:'Archive'};
-export default function Archive(){return <main className="shell pt-20 min-h-[65vh]"><p className="eyebrow">Chronological record</p><h1 className="text-7xl md:text-9xl tracking-tight mt-5 mb-16">Archive<span style={{color:'var(--accent)'}}>.</span></h1>{journals.map(j=><Link href={`/journal/${j.slug}`} key={j.slug} className="rule py-9 grid grid-cols-[65px_1fr_22px] gap-5 items-center"><span className="eyebrow">{j.number}</span><div><h2 className="text-3xl md:text-5xl">{j.title}</h2><p className="sans text-xs mt-3" style={{color:'var(--muted)'}}>{j.date} · {j.kind}</p></div><ArrowUpRight size={20}/></Link>)}</main>}
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
+import { journals } from '../../lib/journals';
 
+export const metadata = { title: 'Journals', description: 'Chronological journals from The Observer archive.' };
+
+export default function Archive() {
+  return (
+    <main className="page-shell">
+      <p className="eyebrow page-kicker">01 / A record, in sequence</p>
+      <h1 className="page-title">Journals<span className="accent">.</span></h1>
+      <p className="page-dek">Thought, recorded from inside its own moment. Each entry carries its date and editorial history with it.</p>
+      <div className="page-rule" aria-label="Journal entries">
+        {journals.map((journal) => (
+          <Link href={`/journal/${journal.slug}`} key={journal.slug} className="archive-row">
+            <span className="archive-row-number">{journal.number}</span>
+            <div><h2>{journal.title}</h2><p>{journal.date} · {journal.kind}</p></div>
+            <ArrowUpRight size={19} aria-hidden="true" />
+          </Link>
+        ))}
+      </div>
+    </main>
+  );
+}

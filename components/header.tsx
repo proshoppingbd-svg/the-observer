@@ -1,3 +1,28 @@
 import Link from 'next/link';
-export default function Header(){return <header className="shell"><div className="flex flex-wrap items-center justify-between gap-5 py-7 border-b" style={{borderColor:'var(--line)'}}><Link href="/" className="font-semibold tracking-[.16em] text-xl">THE OBSERVER<span style={{color:'var(--accent)'}}>.</span></Link><nav aria-label="Main navigation" className="sans flex gap-5 md:gap-9 text-[11px] tracking-widest uppercase"><Link href="/archive">Archive</Link><Link href="/observer">Author</Link><Link href="/studio">Studio</Link></nav></div></header>}
 
+const links = [
+  { href: '/archive', label: 'Journals' },
+  { href: '/ledger', label: 'Ledger' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/timeline', label: 'Timeline' },
+];
+
+export default function Header() {
+  return (
+    <header className="site-header">
+      <div className="header-inner">
+        <Link href="/" className="wordmark" aria-label="The Observer home">
+          <span className="wordmark-mark" aria-hidden="true">◉</span>
+          <span>THE OBSERVER</span>
+          <span className="wordmark-period">.</span>
+        </Link>
+        <nav aria-label="Main navigation" className="main-nav">
+          {links.map((link) => <Link href={link.href} key={link.href}>{link.label}</Link>)}
+          <Link href="/observer" className="nav-author">The author <span aria-hidden="true">↗</span></Link>
+        </nav>
+        <Link href="/studio" className="studio-link"><span className="status-dot" /> Studio</Link>
+      </div>
+      <div className="header-rule"><span>FIELD RECORD / 2026—</span><span>HUMAN THOUGHT · MACHINE AGE</span></div>
+    </header>
+  );
+}
