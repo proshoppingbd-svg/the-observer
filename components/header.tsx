@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 const links = [
+  { href: '/daily', label: 'Daily' },
   { href: '/archive', label: 'Journals' },
   { href: '/ledger', label: 'Ledger' },
   { href: '/projects', label: 'Projects' },

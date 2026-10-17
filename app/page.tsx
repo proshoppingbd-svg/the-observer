@@ -34,6 +34,8 @@ export default function Home() {
         <div className="identity-strip-art" aria-hidden="true"><div className="orbit orbit-2"/><div className="orbit orbit-3"/><span>◎</span></div>
       </section>
 
+      <section className="daily-prompt content-width"><div><p className="eyebrow">Your daily record</p><h2>Leave something here before the day disappears.</h2></div><Link href="/daily" className="button">Open daily journal <ArrowUpRight size={15}/></Link></section>
+
       <section className="manifesto content-width">
         <div className="section-kicker"><span>WHY THIS EXISTS</span><span>— A TIME CAPSULE, WRITTEN IN REAL TIME</span></div>
         <div className="manifesto-body"><span className="manifesto-symbol">◎</span><p>History keeps the outcome.<br /><em>The Observer keeps the uncertainty.</em></p></div>
