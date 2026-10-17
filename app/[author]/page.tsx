@@ -1,7 +1,8 @@
-import {notFound} from 'next/navigation';
-export const metadata={title:'Observer'};
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
+export const metadata={title:'The author'};
 export const dynamicParams=false;
 export function generateStaticParams(){return [{author:'observer'}]}
-import Link from 'next/link';
-export default async function Author({params}:{params:Promise<{author:string}>}){const {author}=await params;if(author!=='observer')notFound();return <main className="shell pt-24 min-h-[65vh]"><p className="eyebrow">Contributor profile</p><h1 className="text-6xl md:text-8xl tracking-tight mt-7">{author.replaceAll('-',' ')}</h1><p className="text-2xl max-w-xl mt-10 leading-relaxed">A record of thoughts, work, predictions and questions—preserved as they were understood at the time.</p><Link href="/archive" className="button mt-12">Browse journals</Link></main>}
+export default async function Author({params}:{params:Promise<{author:string}>}){const {author}=await params;if(author!=='observer')notFound();return <main className="author-page page-shell"><p className="eyebrow page-kicker">Independent thinker / builder / observer</p><section className="identity-card"><div className="identity-top"><span>PERSONAL WEBSITE / PUBLICATION</span><span className="identity-star">✳</span></div><h1>The Observer</h1><p className="identity-tagline">Ideas. Experiments. Predictions. Time.</p><div className="identity-rule"/><p className="identity-quote">I don&apos;t claim to know what the future holds. I document what I believe, build what I can, and let time reveal the results.</p><p className="identity-byline">Written and maintained by its founder <ArrowUpRight size={16}/></p></section><div className="author-copy"><p>The Observer is a working publication for curiosity, independent thinking, and the discipline of observing results without pretending every prediction is certain.</p><p>A public record of what I believe, what I question, and what I attempt to build.</p></div><div className="author-links"><Link href="/journal/the-origin" className="button">Read The Observer <ArrowUpRight size={15}/></Link><Link href="/projects" className="button button-secondary">Explore projects <ArrowUpRight size={15}/></Link></div></main>}
 

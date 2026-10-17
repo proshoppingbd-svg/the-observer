@@ -29,6 +29,11 @@ export default function Home() {
         </aside>
       </section>
 
+      <section className="identity-strip content-width">
+        <div className="identity-strip-copy"><p className="eyebrow">Independent thinker / builder / observer</p><h2>The future is uncertain. <em>My thinking is on record.</em></h2><p>A public record of what I believe, what I question, and what I attempt to build.</p><div className="identity-strip-links"><Link href="/observer" className="button">Read the author <ArrowUpRight size={15}/></Link><Link href="/projects" className="button button-secondary">Explore projects <ArrowUpRight size={15}/></Link></div></div>
+        <div className="identity-strip-art" aria-hidden="true"><div className="orbit orbit-2"/><div className="orbit orbit-3"/><span>◎</span></div>
+      </section>
+
       <section className="manifesto content-width">
         <div className="section-kicker"><span>WHY THIS EXISTS</span><span>— A TIME CAPSULE, WRITTEN IN REAL TIME</span></div>
         <div className="manifesto-body"><span className="manifesto-symbol">◎</span><p>History keeps the outcome.<br /><em>The Observer keeps the uncertainty.</em></p></div>

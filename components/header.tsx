@@ -1,4 +1,7 @@
+ 'use client';
 import Link from 'next/link';
+import { Menu, X } from 'lucide-react';
+import { useState } from 'react';
 
 const links = [
   { href: '/archive', label: 'Journals' },
@@ -8,6 +11,7 @@ const links = [
 ];
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
   return (
     <header className="site-header">
       <div className="header-inner">
@@ -16,7 +20,8 @@ export default function Header() {
           <span>THE OBSERVER</span>
           <span className="wordmark-period">.</span>
         </Link>
-        <nav aria-label="Main navigation" className="main-nav">
+        <button className="mobile-menu-button" aria-label={open ? 'Close navigation' : 'Open navigation'} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X size={20}/> : <Menu size={20}/>}</button>
+        <nav aria-label="Main navigation" className={`main-nav ${open ? 'is-open' : ''}`} onClick={() => setOpen(false)}>
           {links.map((link) => <Link href={link.href} key={link.href}>{link.label}</Link>)}
           <Link href="/observer" className="nav-author">The author <span aria-hidden="true">↗</span></Link>
         </nav>
